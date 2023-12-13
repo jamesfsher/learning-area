@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="myDate">When are you available this summer?</label>
+        <input type="datetime-local" name="datetime" id="datetime" />
+
+    </form>
+    <p>
+        Entered information:
+    <div class="output"></div>
+    </p>
+
+    <script>
+        const input = document.querySelector('#datetime');
+        const output = document.querySelector(".output");
+
+        input.addEventListener("input", () => {
+            output.textContent = input.value;
+        });
+
+    </script>
+</body>
+
+</html>
