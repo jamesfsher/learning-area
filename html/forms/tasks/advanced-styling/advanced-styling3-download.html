@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Advanced styling: Task 3</title>
     <style>
       body {
@@ -21,7 +21,8 @@
       select {
         font-family: inherit;
         font-size: 100%;
-        padding: 0; margin: 0;
+        padding: 0;
+        margin: 0;
       }
 
       fieldset {
@@ -41,7 +42,9 @@
         flex-flow: row wrap;
       }
 
-      button, label, input {
+      button,
+      label,
+      input {
         display: block;
         font-family: inherit;
         font-size: 100%;
@@ -58,13 +61,60 @@
         border-radius: 5px;
       }
 
-      input:hover, input:focus {
+      input:hover,
+      input:focus {
         background-color: #eee;
       }
 
       button {
         width: 60%;
         margin: 0 auto;
+      }
+
+      input + span {
+        position: relative;
+      }
+
+      input:required + span::after {
+        font-size: 0.7rem;
+        position: absolute;
+        padding: 5px 10px;
+        top: -26px;
+        left: -70px;
+        color: white;
+        background-color: black;
+        content: "Required";
+      }
+
+      input + span::before {
+        position: absolute;
+        right: -20px;
+        top: 5px;
+      }
+
+      input:invalid {
+        border: 2px solid red;
+      }
+
+      input:invalid + span::before {
+        content: "✖";
+        color: red;
+      }
+
+      input:valid + span::before {
+        content: "✓";
+        color: green;
+      }
+
+      input[type="email"]:invalid + span::after {
+        font-size: 0.7rem;
+        position: absolute;
+        padding: 2px 5px;
+        top: -22px;
+        left: -125px;
+        color: white;
+        background-color: black;
+        content: "format: abc@mail.com";
       }
     </style>
   </head>
@@ -77,22 +127,21 @@
         <p>Required fields are labelled with "required".</p>
         <div>
           <label for="fname">First name: </label>
-          <input id="fname" name="fname" type="text" required>
+          <input id="fname" name="fname" type="text" required />
           <span></span>
         </div>
         <div>
           <label for="lname">Last name: </label>
-          <input id="lname" name="lname" type="text" required>
+          <input id="lname" name="lname" type="text" required />
           <span></span>
         </div>
         <div>
           <label for="email">Email address: </label>
-          <input id="email" name="email" type="email">
+          <input id="email" name="email" type="email" />
           <span></span>
         </div>
         <div><button>Submit</button></div>
       </fieldset>
     </form>
   </body>
-
 </html>
